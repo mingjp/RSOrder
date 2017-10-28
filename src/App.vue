@@ -58,7 +58,7 @@
 
 <script type="text/javascript">
     import axios from 'axios'
-
+    import http from './utils/httpClient.js'
     export default {
         data() {
             return {
@@ -88,9 +88,11 @@
             }
         },
         mounted: function(){
-            console.log(666);
-            axios.get('http://localhost:7779/order_getAll').then(function(result){
-                console.log(result)
+            http.post({
+                url: '/order_getSome',
+                params: {userName: '李四'}
+            }).then(function(result){
+                console.log(result);
             })
         }
     }

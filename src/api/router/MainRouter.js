@@ -16,7 +16,7 @@ module.exports = {
 		      next();
 		    }
 		});
-		app.listen(7779);
+		app.listen(5555);
 		// app.use(express.static(path.join(__dirname,  '../../client')));
 		// putawayRouter.Register(app);
 		// userRouter.Register(app);
