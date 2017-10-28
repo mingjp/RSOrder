@@ -20,7 +20,7 @@
                 </el-col>
             </el-header>
             <el-aside>
-                <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+                <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapsed="isCollapse">
                   <el-submenu index="1">
                     <template slot="title">
                       <i class="el-icon-location"></i>
@@ -57,6 +57,8 @@
 </template>
 
 <script type="text/javascript">
+    import axios from 'axios'
+
     export default {
         data() {
             return {
@@ -84,6 +86,12 @@
             handleClose(key, keyPath) {
                 console.log(key, keyPath);
             }
+        },
+        mounted: function(){
+            console.log(666);
+            axios.get('http://localhost:7779/order_getAll').then(function(result){
+                console.log(result)
+            })
         }
     }
 </script>

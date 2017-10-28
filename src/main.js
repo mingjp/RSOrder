@@ -5,9 +5,12 @@ import './assets/css/reset.css'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'element-ui/lib/index.js'
 import 'font-awesome/css/font-awesome.min.css'
+import axios from 'axios'
 Vue.use(Element)
 
 new Vue({
   el: '#app',
-  render: h => h(App)
-})
+  render: h => h(App),
+  
+});
+  
