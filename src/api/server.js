@@ -1,10 +1,27 @@
-/* 
-* @Author: Marte
-* @Date:   2017-10-27 22:18:08
-* @Last Modified by:   Marte
-* @Last Modified time: 2017-10-27 22:31:35
-*/
+var express = require('express');
+var app = express();
 
-$(document).ready(function(){
-    
+var db = require('./db.js');
+
+app.all('*', function(req, res, next) {
+    // res.writeHead(200, {"Content-Type"})
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
+    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+    res.header("X-Powered-By",' 3.2.1')
+    if(req.method=="OPTIONS") {
+      	res.sendStatus(200);/*让options请求快速返回*/
+    } else{
+      	next();
+    }
 });
+
+
+app.get('/getgoods', function(request, response){
+	db.select('select * from user ', function(rows){
+		response.send(rows);
+	})
+	
+})
+
+app.listen(6666);
