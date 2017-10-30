@@ -2,8 +2,8 @@
     <div id="app">
         <div class="container">
             <el-header class="header">
-                <el-col :span="5" class="logo">{{sysName}}</el-col>
-                <el-col :span="14">
+                <el-col :span="4" class="logo">{{sysName}}</el-col>
+                <el-col :span="15">
 
                   <el-button :label="true" @click.prevent="collapse" class="tools"><i class="fa fa-align-justify"></i></el-button>
 
@@ -62,9 +62,7 @@
                         </el-col>
                     </div>
                 </section>
-                <div>
-                    <router-view></router-view>
-                </div>
+                <router-view></router-view>
             </el-main>
         </div>
     </div>
@@ -99,6 +97,9 @@
     }
 </script>
 <style lang="scss">
+    html,body,#app{
+        height: 100%;
+    }
     .container{
         width: 100%;
         height: 100%;
@@ -106,6 +107,9 @@
             background-color: #409EFF;
             color:#fff;
             line-height: 60px;
+        }
+        .aside{
+            width:22% !important;
         }
         .userinfo{
             text-align: right;
@@ -126,7 +130,7 @@
             float: left;
         }
         .main{
-            width: 963px;
+            width:78%;
             float: right;
             .content-container {
                 background: #f1f2f7;
