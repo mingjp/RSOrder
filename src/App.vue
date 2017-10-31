@@ -19,8 +19,13 @@
                     </el-dropdown>
                 </el-col>
             </el-header>
+<<<<<<< HEAD
             <el-aside class="aside">
                 <el-menu default-active="1-4-1" class="el-menu-vertical-demo" :collapse="isCollapse">
+=======
+            <el-aside>
+                <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapsed="isCollapse">
+>>>>>>> 5fbf827b87f02403e7026eb4aee9326f644bf47b
                   <el-submenu index="1">
                     <template slot="title">
                       <i class="el-icon-location"></i>
@@ -69,6 +74,8 @@
 </template>
 
 <script type="text/javascript">
+    import axios from 'axios'
+    import http from './utils/httpClient.js'
     export default {
         data() {
             return {
@@ -93,6 +100,14 @@
             collapse:function(){
                 this.isCollapse=!this.isCollapse;
             }
+        },
+        mounted: function(){
+            http.post({
+                url: '/order_getSome',
+                params: {userName: '李四'}
+            }).then(function(result){
+                console.log(result);
+            })
         }
     }
 </script>

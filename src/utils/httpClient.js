@@ -1,6 +1,12 @@
 import axios from 'axios'
+import qs from 'qs'
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
+<<<<<<< HEAD
 var baseUrl = 'http://localhost:5555/';
+=======
+var baseUrl = 'http://localhost:5555';
+>>>>>>> 5fbf827b87f02403e7026eb4aee9326f644bf47b
 var filterUrl = function(url){
 	if(url.startsWith('http')){
 		return url;
@@ -30,11 +36,16 @@ export default {
 		if(opts.vm){
 			opts.vm[opts.loading || 'loadingShow'] = true;
 		}
-		axios.post(filterUrl(opts.url), opts.params).then(function(response){
-			if(opts.vm){
+		axios({
+	        method: 'POST',
+	        url: filterUrl(opts.url),
+	        data: qs.stringify(opts.params),
+	        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+	    }).then(function(result){
+	        if(opts.vm){
 				opts.vm[opts.loading || 'loadingShow'] = false;
 			}
-			resolve(response);
+			resolve(result);
 		}).catch(function(error){
 			if(opts.vm){
 				opts.vm[opts.loading || 'loadingShow'] = false;

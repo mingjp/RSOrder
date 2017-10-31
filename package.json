@@ -9,9 +9,14 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+<<<<<<< HEAD
     "binary-loader": "0.0.1",
     "body-parser": "^1.18.2",
     "connect": "^3.6.5",
+=======
+    "axios": "^0.17.0",
+    "body-parser": "^1.18.2",
+>>>>>>> 5fbf827b87f02403e7026eb4aee9326f644bf47b
     "element-ui": "^2.0.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",

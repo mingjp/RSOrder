@@ -12,6 +12,13 @@ Vue.use(Element)
 
 new Vue({
   el: '#app',
+<<<<<<< HEAD
   router,
   render: h => h(App)
 })
+=======
+  render: h => h(App),
+  
+});
+  
+>>>>>>> 5fbf827b87f02403e7026eb4aee9326f644bf47b
