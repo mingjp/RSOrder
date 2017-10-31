@@ -1,12 +1,12 @@
 <template>
     <div id="app">
-        <el-container class="container">
+        <div class="container">
             <el-header class="header">
                 <el-col :span="4" class="logo">{{sysName}}</el-col>
                 <el-col :span="15">
-                    <el-radio-group v-model="isCollapse" class="tools">
-                      <el-radio-button :label="false"><i class="fa fa-align-justify"></i></el-radio-button>
-                    </el-radio-group>
+
+                  <el-button :label="true" @click.prevent="collapse" class="tools"><i class="fa fa-align-justify"></i></el-button>
+
                 </el-col>   
                 <el-col :span="5" class="userinfo">
                     <el-dropdown trigger="hover">
@@ -19,8 +19,8 @@
                     </el-dropdown>
                 </el-col>
             </el-header>
-            <el-aside>
-                <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+            <el-aside class="aside">
+                <el-menu default-active="1-4-1" class="el-menu-vertical-demo" :collapse="isCollapse">
                   <el-submenu index="1">
                     <template slot="title">
                       <i class="el-icon-location"></i>
@@ -28,7 +28,7 @@
                     </template>
                     <el-menu-item-group>
                       <span slot="title">分组一</span>
-                      <el-menu-item index="1-1">选项1</el-menu-item>
+                      <el-menu-item index="1-1"><a href="#/echart">选项1</a></el-menu-item>
                       <el-menu-item index="1-2">选项2</el-menu-item>
                     </el-menu-item-group>
                     <el-menu-item-group title="分组2">
@@ -49,10 +49,22 @@
                   </el-menu-item>
                 </el-menu>
             </el-aside>
-            <el-main>
-
+            <el-main class="main">
+                <section class="content-container">
+                    <div class="grid-content bg-purple-light">
+                        <el-col :span="24" class="breadcrumb-container">
+                            <strong class="title">{{$route.name}}</strong>
+                            <el-breadcrumb separator="/" class="breadcrumb-inner">
+                                <el-breadcrumb-item v-for="item in $route.matched" :key="item.path">
+                                    {{ item.name }}
+                                </el-breadcrumb-item>
+                            </el-breadcrumb>
+                        </el-col>
+                    </div>
+                </section>
+                <router-view></router-view>
             </el-main>
-        </el-container>
+        </div>
     </div>
 </template>
 
@@ -61,10 +73,9 @@
         data() {
             return {
                 sysName:'RSOrder',
-                collapsed:false,
                 sysUserName: 'Admin',
                 sysUserAvatar: './src/assets/img/a8.jpg',
-                isCollapse: 'true',
+                isCollapse: false,
                 form: {
                     name: '',
                     region: '',
@@ -78,24 +89,27 @@
             }
         },
          methods: {
-            handleOpen(key, keyPath) {
-                console.log(key, keyPath);
-            },
-            handleClose(key, keyPath) {
-                console.log(key, keyPath);
+            //折叠导航栏
+            collapse:function(){
+                this.isCollapse=!this.isCollapse;
             }
         }
     }
 </script>
 <style lang="scss">
+    html,body,#app{
+        height: 100%;
+    }
     .container{
         width: 100%;
         height: 100%;
         .header{
-            height: 60px;
             background-color: #409EFF;
             color:#fff;
             line-height: 60px;
+        }
+        .aside{
+            width:22% !important;
         }
         .userinfo{
             text-align: right;
@@ -110,6 +124,31 @@
                     margin: 10px 0px 10px 10px;
                     float: right;
                 }   
+            }
+        }
+        .aside{
+            float: left;
+        }
+        .main{
+            width:78%;
+            float: right;
+            .content-container {
+                background: #f1f2f7;
+                padding: 20px;
+                .breadcrumb-container {
+                    .title {
+                        width: 200px;
+                        float: left;
+                        color: #475669;
+                    }
+                    .breadcrumb-inner {
+                        float: right;
+                    }
+                }
+                .content-wrapper {
+                    background-color: #fff;
+                    box-sizing: border-box;
+                }
             }
         }
     }

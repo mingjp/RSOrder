@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-var baseUrl = 'http://localhost:88/';
+var baseUrl = 'http://localhost:5555/';
 var filterUrl = function(url){
 	if(url.startsWith('http')){
 		return url;
@@ -10,10 +10,11 @@ var filterUrl = function(url){
 
 export default {
 	get: (opts) => new Promise((resolve, reject) => {
+
 		if(opts.vm){
 			opts.vm[opts.loading || 'loadingShow'] = true;
 		}
-		axios.get(filterUrl(opts.url), opts.params).then(function(response){
+		axios.get(filterUrl(opts.url), {params:opts.params}).then(function(response){
 			if(opts.vm){
 				opts.vm[opts.loading || 'loadingShow'] = false;
 			}
