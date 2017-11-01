@@ -47,19 +47,17 @@
 
             this.logining = true;
 
-            var loginParams = { username: this.ruleForm2.account, password: this.ruleForm2.checkPass };
+            var loginParams = { userName: this.ruleForm2.account, userPassword: this.ruleForm2.checkPass };
             http.get({
                 vm: this,
                 url: 'login',
                 params: loginParams
             }).then(data => {
               this.logining = false;
-              var user = data.data;
+              var user = data.data[0].userLevel;
               var code = data.status;
               var msg = data.msg;
-              //let { data, status, user } = data;
-
-              if (code !== 200 && code !==304) {
+              if (code !== 200 && code !==304 || this.ruleForm2.checkPass!=data.data[0].userPassword) {
                 this.$message({
                   message: msg,
                   type: 'error'

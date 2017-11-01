@@ -8,19 +8,19 @@
 
             </el-col>   
             <el-col :span="5" class="userinfo">
-                <el-dropdown trigger="hover">
+                <el-dropdown trigger="hover" @command="handleCommand">
                     <span class="el-dropdown-link userinfo-inner"><img :src="this.sysUserAvatar" /> {{sysUserName}}</span>
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item>我的消息</el-dropdown-item>
                         <el-dropdown-item>设置</el-dropdown-item>
-                        <el-dropdown-item divided>退出登录</el-dropdown-item>
+                        <el-dropdown-item divided command="exit">退出登录</el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
             </el-col>
         </el-header>
         <el-aside class="aside">
             <el-menu default-active="1-4-1" class="el-menu-vertical-demo" :collapse="isCollapse" :router="true">
-              <el-submenu index="1">
+              <el-submenu index="1" v-if="limit=='管理员'">
                 <template slot="title">
                   <i class="el-icon-picture"></i>
                   <span slot="title">Charts</span>
@@ -30,19 +30,19 @@
                   <el-menu-item index="echart2">用户</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
-              <el-menu-item index="menutable">
+              <el-menu-item index="menutable" v-if="limit=='管理员'">
                 <i class="el-icon-menu"></i>
                 <span slot="title">菜单</span>
               </el-menu-item>
-              <el-menu-item index="user">
+              <el-menu-item index="user" v-if="limit=='管理员'">
                 <i class="el-icon-phone"></i>
                 <span slot="title">用户</span>
               </el-menu-item>
-              <el-menu-item index="4">
+              <el-menu-item index="4" v-if="limit=='管理员'">
                 <i class="el-icon-star-on"></i>
                 <span slot="title">评论</span>
               </el-menu-item>
-              <el-menu-item index="order_part">
+              <el-menu-item index="order_part" v-if="limit=='收银员' || limit=='管理员'">
                 <i class="el-icon-goods"></i>
                 <span slot="title">收银</span>
               </el-menu-item>
@@ -73,6 +73,7 @@
                 sysUserName: 'Admin',
                 sysUserAvatar: './src/assets/img/a8.jpg',
                 isCollapse: false,
+                limit:'管理员',
                 form: {
                     name: '',
                     region: '',
@@ -89,7 +90,17 @@
             //折叠导航栏
             collapse:function(){
                 this.isCollapse=!this.isCollapse;
+            },
+            handleCommand(command){
+                if(command=='exit'){
+                    sessionStorage.removeItem('user');
+                    this.$router.push({ path: '/login' });
+
+                }
             }
+        },
+        created:function(){
+            this.limit = sessionStorage.getItem("user").slice(1,-1);
         }
     }
 </script>

@@ -2,7 +2,7 @@
 * @Author: Marte
 * @Date:   2017-11-01 13:57:55
 * @Last Modified by:   Marte
-* @Last Modified time: 2017-11-01 14:40:15
+* @Last Modified time: 2017-11-01 16:03:07
 */
 
 var db = require('../db.js');
@@ -18,9 +18,10 @@ module.exports = {
             
         })
         app.get('/login', function(request, response){
-            response.send('true');
-
-            
+            var userName = request.query.userName;
+            db.selects('select * from user where userName="'+userName+'"', function(rows){
+                response.send(rows);
+            })
         })
         app.get('/user_modify', function(request, response){
             var id = request.query.userId;
@@ -32,9 +33,7 @@ module.exports = {
             }
             str = str.slice(0,-1);
             userModSql_Params.push(id);
-            console.log(userModSql_Params)
             var userModSql = 'UPDATE user SET '+ str +' WHERE userId =?';
-            console.log(userModSql)
             db.update(userModSql, userModSql_Params, function(rows){
                 response.send(rows);
             })

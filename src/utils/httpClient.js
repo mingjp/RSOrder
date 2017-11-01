@@ -13,7 +13,7 @@ var filterUrl = function(url){
 
 export default {
 	get: (opts) => new Promise((resolve, reject) => {
-
+		
 		if(opts.vm){
 			opts.vm[opts.loading || 'loadingShow'] = true;
 		}

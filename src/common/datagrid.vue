@@ -140,18 +140,20 @@
                     this.editLoading = true;
                     var params = Object.assign({}, this.editForm);
                     if(this.handleType=='编辑'){
-                        this.tableData[this.index] = Object.assign({}, this.editForm);
                         var url = this.modify;
                     }else if(this.handleType=='新增'){
-                        this.tableData.push(this.editForm);
                         var url = this.add;
                     }
-                       
                     http.get({
                         vm: this,
                         url: url,
                         params: params
                     }).then((res) => {
+                        if(this.handleType=='编辑'){
+                            this.tableData[this.index] = Object.assign({}, this.editForm);
+                        }else if(this.handleType=='新增'){
+                            this.tableData.push(this.editForm);
+                        }
                         this.editLoading = false;
                         this.$message({
                             message: '提交成功',
