@@ -1,6 +1,6 @@
 <template>
     <div>
-        <datagrid api="menutable" modify="menutable_modify" delate="menutable_delate" add="menutable_add"></datagrid>
+        <datagrid api="user" modify="user_modify" delete="user_delete" add="user_add"></datagrid>
     </div>
 </template>
 

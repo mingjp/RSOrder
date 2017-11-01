@@ -1,5 +1,5 @@
-
-var goodsRouter = require('./goodsRouter.js');
+var userRouter = require('./userRouter.js');
+var orderRouter = require('./orderRouter.js');
 
 module.exports = {
 	Register: function(express){
@@ -16,9 +16,10 @@ module.exports = {
 		      next();
 		    }
 		});
-		app.listen(6666);
+		app.listen(5555);
 
-
+		userRouter.Register(app);
+		orderRouter.order(app);
 
 	}
 }
