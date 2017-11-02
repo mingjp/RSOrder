@@ -1,7 +1,8 @@
 <template>
 	<div id="menu">
 		<div>
-			<datagrid :api="baseUrl+'getMsg'" :modify="baseUrl+'updateMenu'" :delete="baseUrl+'deleteMenu'"></datagrid>
+			<datagrid :api="baseUrl+'getMsg'" :modify="baseUrl+'updateMenu'" 
+			:delete="baseUrl+'deleteMenu'" :selects="baseUrl+'selectMenu'"></datagrid>
 		</div>
 		<div class="menu_Masked added" v-if="addShow">
 			<div class="menu_prop"></div>
@@ -57,7 +58,7 @@
 		data:function(){
 			return {
 				urls:[],
-				menuType:['鲁菜','川菜','凉菜'],
+				menuType:[],
 				showNewMenuType:false,
 				type:"",
 				menuName:'',
@@ -65,7 +66,7 @@
 				menuDescribe:'',
 				otherType:'',
 				addShow:false,
-				baseUrl:'http://10.3.131.26:2222/'
+				baseUrl:'http://10.3.131.26:5555/'
 			}
 		},
 		methods:{

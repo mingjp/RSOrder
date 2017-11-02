@@ -4,9 +4,7 @@
             <el-header class="header">
                 <el-col :span="4" class="logo">{{sysName}}</el-col>
                 <el-col :span="15">
-
                   <el-button :label="true" @click.prevent="collapse" class="tools"><i class="fa fa-align-justify"></i></el-button>
-
                 </el-col>   
                 <el-col :span="5" class="userinfo">
                     <el-dropdown trigger="hover">
@@ -19,63 +17,52 @@
                     </el-dropdown>
                 </el-col>
             </el-header>
-<<<<<<< HEAD
             <el-aside class="aside">
-                <el-menu default-active="1-4-1" class="el-menu-vertical-demo" :collapse="isCollapse">
-=======
-            <el-aside>
-                <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapsed="isCollapse">
->>>>>>> 5fbf827b87f02403e7026eb4aee9326f644bf47b
+                <el-menu default-active="1-4-1" class="el-menu-vertical-demo" :collapse="isCollapse" :router="true">
                   <el-submenu index="1">
                     <template slot="title">
-                      <i class="el-icon-location"></i>
-                      <span slot="title">导航一</span>
+                      <i class="el-icon-picture"></i>
+                      <span slot="title">Charts</span>
                     </template>
                     <el-menu-item-group>
-                      <span slot="title">分组一</span>
-                      <el-menu-item index="1-1"><a href="#/echart">选项1</a></el-menu-item>
-                      <el-menu-item index="1-2">选项2</el-menu-item>
+                      <el-menu-item index="echart">销售额</el-menu-item>
+                      <el-menu-item index="1-2">用户人群</el-menu-item>
                     </el-menu-item-group>
-                    <el-menu-item-group title="分组2">
-                      <el-menu-item index="1-3">选项3</el-menu-item>
-                    </el-menu-item-group>
-                    <el-submenu index="1-4">
-                      <span slot="title">选项4</span>
-                      <el-menu-item index="1-4-1">选项1</el-menu-item>
-                    </el-submenu>
                   </el-submenu>
-                  <el-menu-item index="2">
+                  <el-menu-item index="menutable">
                     <i class="el-icon-menu"></i>
-                    <span slot="title">导航二</span>
+                    <span slot="title">菜单</span>
                   </el-menu-item>
                   <el-menu-item index="3">
-                    <i class="el-icon-setting"></i>
-                    <span slot="title">导航三</span>
+                    <i class="el-icon-phone"></i>
+                    <span slot="title">用户</span>
+                  </el-menu-item>
+                  <el-menu-item index="4">
+                    <i class="el-icon-star-on"></i>
+                    <span slot="title">评论</span>
+                  </el-menu-item>
+                  <el-menu-item index="5">
+                    <i class="el-icon-goods"></i>
+                    <span slot="title">收银</span>
                   </el-menu-item>
                 </el-menu>
             </el-aside>
             <el-main class="main">
                 <section class="content-container">
-                    <div class="grid-content bg-purple-light">
-                        <el-col :span="24" class="breadcrumb-container">
-                            <strong class="title">{{$route.name}}</strong>
-                            <el-breadcrumb separator="/" class="breadcrumb-inner">
-                                <el-breadcrumb-item v-for="item in $route.matched" :key="item.path">
-                                    {{ item.name }}
-                                </el-breadcrumb-item>
-                            </el-breadcrumb>
-                        </el-col>
-                    </div>
+
+                    <el-breadcrumb separator-class="el-icon-arrow-right" class="breadcrumb-inner">
+                        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+                        <el-breadcrumb-item v-for="item in $route.matched" :to="{ path:item.path}">
+                            {{ item.name }}
+                        </el-breadcrumb-item>
+                    </el-breadcrumb>
                 </section>
                 <router-view></router-view>
             </el-main>
         </div>
     </div>
 </template>
-
 <script type="text/javascript">
-    import axios from 'axios'
-    import http from './utils/httpClient.js'
     export default {
         data() {
             return {
@@ -100,14 +87,6 @@
             collapse:function(){
                 this.isCollapse=!this.isCollapse;
             }
-        },
-        mounted: function(){
-            http.post({
-                url: '/order_getSome',
-                params: {userName: '李四'}
-            }).then(function(result){
-                console.log(result);
-            })
         }
     }
 </script>
@@ -150,20 +129,6 @@
             .content-container {
                 background: #f1f2f7;
                 padding: 20px;
-                .breadcrumb-container {
-                    .title {
-                        width: 200px;
-                        float: left;
-                        color: #475669;
-                    }
-                    .breadcrumb-inner {
-                        float: right;
-                    }
-                }
-                .content-wrapper {
-                    background-color: #fff;
-                    box-sizing: border-box;
-                }
             }
         }
     }

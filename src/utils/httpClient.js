@@ -2,11 +2,7 @@ import axios from 'axios'
 import qs from 'qs'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
-<<<<<<< HEAD
 var baseUrl = 'http://localhost:5555/';
-=======
-var baseUrl = 'http://localhost:5555';
->>>>>>> 5fbf827b87f02403e7026eb4aee9326f644bf47b
 var filterUrl = function(url){
 	if(url.startsWith('http')){
 		return url;

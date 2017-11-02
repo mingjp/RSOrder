@@ -1,11 +1,9 @@
 var path = require('path');
 var bodyParser = require('body-parser');
 var orderRouter = require('./orderRouter.js');
-<<<<<<< HEAD
 var menuRouter = require('./menuRouter.js');
+var shouyinRouter = require('./shouyinRouter.js');
 var express = require('express');
-=======
->>>>>>> 5fbf827b87f02403e7026eb4aee9326f644bf47b
 module.exports = {
 	Register: function(express){
 		var app = express();
@@ -21,20 +19,10 @@ module.exports = {
 		      next();
 		    }
 		});
-		app.listen(5555);
-<<<<<<< HEAD
+		app.listen(5555,'10.3.131.26');
 		app.use(express.static('temp'));
 		orderRouter.order(app);
 		menuRouter.menuRouter(app);
-=======
-		// app.use(express.static(path.join(__dirname,  '../../client')));
-		// putawayRouter.Register(app);
-		// userRouter.Register(app);
-		// app.use('/goods', goodsRouter);
-		// app.use('/producer', producerRouter);
-		// app.use(bodyParser.urlencoded({extended: false}));
-		// WSRouter();
-		orderRouter.order(app);
->>>>>>> 5fbf827b87f02403e7026eb4aee9326f644bf47b
+		shouyinRouter.shouyinRouter(app);
 	}
 }
