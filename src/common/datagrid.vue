@@ -116,7 +116,6 @@
                     url: this.selects,
                     params: params
                 }).then(res=>{
-                    console.log(res.data);
                     var len = self.len-2;
                     self.msgDatas = {};
                     for(var i=0; i<len; i++){
@@ -127,13 +126,9 @@
             },
             //显示新增界面res.data !='' ? this.tableData = res.data : '';
             handleAdd() {
-                if(this.$parent.handleAdd){
-                    this.$parent.handleAdd();
-                }else{
-                    this.handleType = '新增'
-                    this.editFormVisible = true;
-                    this.editForm = Object.assign({}, this.tableData[0]);
-                }
+                this.handleType = '新增';
+                this.editFormVisible = true;
+                this.editForm = Object.assign({}, this.tableData[0]);
             },
             handleEdit(index, row) {
                 this.handleType = '编辑';
@@ -172,10 +167,8 @@
                     this.editLoading = true;
                     var params = Object.assign({}, this.editForm);
                     if(this.handleType=='编辑'){
-                        this.tableData[this.index] = Object.assign({}, this.editForm);
                         var url = this.modify;
                     }else if(this.handleType=='新增'){
-                        this.tableData.push(this.editForm);
                         var url = this.add;
                     }
                        
@@ -184,6 +177,11 @@
                         url: url,
                         params: params
                     }).then((res) => {
+                        if(this.handleType=='编辑'){
+                            this.tableData[this.index] = Object.assign({}, this.editForm);
+                        }else if(this.handleType=='新增'){
+                            this.tableData.push(this.editForm);
+                        }
                         this.editLoading = false;
                         this.$message({
                             message: '提交成功',

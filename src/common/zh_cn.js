@@ -2,7 +2,7 @@
 * @Author: Marte
 * @Date:   2017-10-31 11:41:38
 * @Last Modified by:   Marte
-* @Last Modified time: 2017-10-31 14:44:32
+* @Last Modified time: 2017-10-31 22:12:39
 */
 
 export default {
@@ -17,11 +17,13 @@ export default {
     orderPrice: '合计',
     orderStatus: '支付状态',
     orderTime: '时间',
-    orderRemark: '备注',
-    menuId:'id',
-    menuName:'菜品名',
-    menuType:'菜品类型',
-    menuPrice:'菜品价钱',
-    menuImg:'菜品图片',
-    menuDescribe:'菜品说明'
+    orderRemark: '备注'
+    // cn: {
+    //     '订单号': 'orderId',
+    //     '菜样': 'orderContent',
+    //     '合计': 'orderPrice',
+    //     '支付状态': 'orderStatus',
+    //     '时间': 'orderTime'，
+    //     '备注': 'orderRemark'
+    // }
 }

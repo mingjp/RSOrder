@@ -11,7 +11,21 @@ var mysql      = require('mysql');
     password:'123',
     database:'rsorder'
 });
-// connection.connect();
+// // connection.connect();
+// pool.getConnection(function(err,conn){
+//   console.log(777);
+//   if(err){
+//     callback(err,null,null);
+//   }else{
+//     conn.query('select * from orders',function(err,vals,fields){
+//         //释放连接
+//         conn.release();
+//         //事件驱动回调
+//         // err? callback(err) : callback(vals);
+//         console.log(err, vals)
+//     });
+//   }
+// });
 
 module.exports = {
     insert: function(sql, callback){
@@ -52,12 +66,12 @@ module.exports = {
         }
       });
     },
-    update: function(sql, callback){
+    update: function(sql,params, callback){
       pool.getConnection(function(err,conn){
         if(err){
           callback(err,null,null);
         }else{
-          conn.query(sql,function(err,vals,fields){
+          conn.query(sql,params,function(err,vals,fields){
               //释放连接
               conn.release();
               //事件驱动回调

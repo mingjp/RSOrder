@@ -1,3 +1,4 @@
+
 import axios from 'axios'
 import qs from 'qs'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -12,7 +13,7 @@ var filterUrl = function(url){
 
 export default {
 	get: (opts) => new Promise((resolve, reject) => {
-
+		
 		if(opts.vm){
 			opts.vm[opts.loading || 'loadingShow'] = true;
 		}

@@ -1,5 +1,4 @@
-var path = require('path');
-var bodyParser = require('body-parser');
+var userRouter = require('./userRouter.js');
 var orderRouter = require('./orderRouter.js');
 var menuRouter = require('./menuRouter.js');
 var shouyinRouter = require('./shouyinRouter.js');
@@ -19,10 +18,12 @@ module.exports = {
 		      next();
 		    }
 		});
-		app.listen(5555,'10.3.131.26');
 		app.use(express.static('temp'));
 		orderRouter.order(app);
 		menuRouter.menuRouter(app);
 		shouyinRouter.shouyinRouter(app);
+		app.listen(5555);
+		userRouter.Register(app);
+		orderRouter.order(app);
 	}
 }
