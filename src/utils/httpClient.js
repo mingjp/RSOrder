@@ -1,8 +1,9 @@
+
 import axios from 'axios'
 import qs from 'qs'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
-var baseUrl = 'http://localhost:5555';
+var baseUrl = 'http://10.3.131.26:5555/';
 var filterUrl = function(url){
 	if(url.startsWith('http')){
 		return url;
@@ -12,10 +13,11 @@ var filterUrl = function(url){
 
 export default {
 	get: (opts) => new Promise((resolve, reject) => {
+		
 		if(opts.vm){
 			opts.vm[opts.loading || 'loadingShow'] = true;
 		}
-		axios.get(filterUrl(opts.url), opts.params).then(function(response){
+		axios.get(filterUrl(opts.url), {params:opts.params}).then(function(response){
 			if(opts.vm){
 				opts.vm[opts.loading || 'loadingShow'] = false;
 			}

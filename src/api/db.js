@@ -1,40 +1,62 @@
 var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : '10.3.131.14',
-  user     : 'myuser',
-  password : '123',
-  database : 'rsorder'
+ var pool = mysql.createPool({
+    host:'10.3.131.8',
+    user:'myuser',
+    password:'123',
+    database:'rsorder'
 });
- 
-connection.connect();
 
 module.exports = {
-    insert: function(statement, callback){
-      connection.query(statement, function(error, results){
-        if(error) throw error;
-        callback(results);
+    insert: function(sql, callback){
+      pool.getConnection(function(err,conn){
+        if(err){
+          callback(err,null,null);
+        }else{
+          conn.query(sql,function(err,vals,fields){
+              //释放连接
+              conn.release();
+              //事件驱动回调
+              err? callback(err) : callback(vals);
+          });
+        }
       });
-      connection.end();
     },
-    deletes: function(statement, callback){
-      connection.query(statement, function(error, results){
-        if(error) throw error;
-        callback(results);
+    deletes: function(sql, callback){
+      pool.getConnection(function(err,conn){
+        if(err){
+          callback(err,null,null);
+        }else{
+          conn.query(sql,function(err,vals,fields){
+              conn.release();
+              err? callback(err) : callback(vals);
+          });
+        }
       });
-      connection.end();
     },
-    selects: function(statement, callback){
-      connection.query(statement, function(error, results){
-          if(error) throw error;
-          callback(results);
+    selects: function(sql, callback){
+      pool.getConnection(function(err,conn){
+        if(err){
+          callback(err,null,null);
+        }else{
+          conn.query(sql,function(err,vals,fields){
+              conn.release();
+              err? callback(err) : callback(vals);
+          });
+        }
       });
-      connection.end();
     },
-    update: function(statement, callback){
-      connection.query(statement, function(error, results){
-        if(error) throw error;
-        callback(results);
+    update: function(sql,params, callback){
+      pool.getConnection(function(err,conn){
+        if(err){
+          callback(err,null,null);
+        }else{
+          conn.query(sql,params,function(err,vals,fields){
+              //释放连接
+              conn.release();
+              //事件驱动回调
+              err? callback(err) : callback(vals);
+          });
+        }
       });
-      connection.end();
     }
 }

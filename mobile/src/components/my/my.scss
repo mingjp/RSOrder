@@ -1,0 +1,74 @@
+.my{
+    flex:1;
+    overflow-y:auto;
+   
+    
+    .details{
+        padding:80px;
+        font-size:40px;
+        ul{
+            padding:20px 60px;
+
+        }
+         &>li >p{
+                line-height:80px;
+            }
+    }
+    .topay{
+        width:100%;
+        text-align:center;
+        margin:50px 0;
+        button{
+            width: 400px;
+            height: 100px;
+            font-size:50px;
+            background:skyblue;
+            color:#fff;
+        }
+    }
+    .review{
+        width:100%;
+        text-align:center;
+        textarea{
+            width: 80%;
+            padding:20px;
+            height: 400px;
+            margin:20px auto;
+            font-size:40px;
+            border:1px solid #666;
+        }
+        p{
+            margin:50px;
+            font-size:70px;
+            text-align:center;
+            i{
+                color:skyblue;
+            }
+        }
+        .rate_x{
+            
+            .el-rate {
+                height:80px;
+                span {
+                font-size:80px;
+                i{font-size:80px;}
+            }
+            }
+            
+        }
+    }
+    .rate{
+        width:100%;
+        
+        text-align:center;
+        margin:30px 0;
+        button{
+            width: 400px;
+            height: 100px;
+            font-size:50px;
+            background:skyblue;
+            color:#fff;
+        }
+    }
+    
+}

@@ -1,0 +1,181 @@
+ 
+.menu{
+    flex:1;
+    display:flex;
+    flex-direction: column;
+    overflow-y:auto;
+    .menu_top{
+        height:100px;
+        display:flex;
+        h3{
+            width:30%;
+            margin-right:20px;
+            font-size:50px;
+            text-align:center;
+            padding:10px 0;
+            border-bottom:2px solid #FF0000;
+            &:last-child{
+                width:70%;
+            }
+        }
+    }
+     
+    .goodslist{
+    flex:1;
+    display:flex;
+   
+        .g_left{
+            width:30%;
+            margin-right:20px;
+            .type{
+                padding:20px 10px;
+                li{
+                    height:100px;
+                    line-height:100px;
+                    text-align:center;
+                    font-size:40px;
+                    background:#FF2626;
+                    color:#fff;
+                    padding:20px 0;
+                    margin-bottom:3px;
+                }
+                .active{background:#D90000;}
+            }
+
+        }
+        .g_right{
+            width:70%;
+            overflow-y:auto;
+            .cuisine{
+                padding:20px;
+
+                li{
+                    height: 240px;
+                    margin-bottom:10px;
+                    border-bottom:1px solid #ccc;
+                    position:relative;
+                    figure{
+                        display:flex;
+                    }
+                    figcaption{
+                        flex:1;
+                        padding-left:40px;
+                        
+                        h4{
+                            font-size:40px;
+                            margin:20px 0;
+                        }
+                        p:nth-of-type(2){
+                            font-size:40px;
+                            color:red;
+                            line-height:50px;
+                            margin-top:30px;
+                            i{
+                                color:skyblue;
+                                font-size:50px;
+                                float:right;
+                                margin-right:10px;
+                            }
+                        }
+                    }
+                    img{
+                        float:left;
+                        height: 200px;
+                        width: 260px;
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+.el-message-box{
+    border-radius:5% !important;
+    width: 800px !important;
+   
+    position:relative;
+}
+.el-message-box__message{
+     height: 980px;
+    p{
+        font-size:50px;
+
+        &>p{
+            height:100px;
+            line-height:100px;
+            position:absolute;
+            bottom:50px;
+            padding-left:50px;
+            color:red;
+        }
+    }
+    img{
+        width:100%;
+        height:700px;
+    }
+    h4{
+        padding-left:50px;
+        height:200px;
+        line-height:200px;
+    }
+}
+.el-message-box__btns{
+    text-align:center;
+    margin:30px 50px;
+   
+}
+.el-button--primary{
+    width:200px;
+    height:80px;
+     
+    span{
+        
+        font-size:30px;
+    }
+    
+}
+.cartcontrol{
+        position:absolute;
+        bottom:40px;
+        right:8px;
+        font-size: 56px;
+        .cart-decrease{
+            width:60px;
+            display: inline-block;
+            transition: all .4s linear;
+            &.move-enter-active{
+                opacity: 1;
+                transform: translate3d(0,0,0);
+            }
+            .inner{
+                display: inline-block;
+                line-height: 24px;
+                color: rgb(0,160,220);
+                transition: all .4s linear;
+                transform: rotate(0);
+                }
+            &.move-enter, &.move-leave-to{
+                opacity: 0;
+                transform: translate3d(24px,0,0);
+                .inner{
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        .cart-count{
+            display: inline-block;
+            vertical-align: top;
+            width: 40px;
+            font-size: 40px;
+            line-height: 60px;
+            text-align: center;
+            color: rgb(147,153,159);
+            }
+        .cart-add{
+            display: inline-block;
+            line-height: 24px;
+            color: rgb(0,160,220);
+        }
+            
+
+}
