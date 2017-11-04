@@ -1,5 +1,8 @@
 var userRouter = require('./userRouter.js');
+<<<<<<< HEAD
 var rateRouter = require('./rateRouter.js');
+=======
+>>>>>>> 20dd63a052964fa874c2d3281cd0bd3e42fccfa2
 var orderRouter = require('./orderRouter.js');
 var menuRouter = require('./menuRouter.js');
 var shouyinRouter = require('./shouyinRouter.js');
@@ -20,6 +23,7 @@ module.exports = {
 		      next();
 		    }
 		});
+<<<<<<< HEAD
 
 
 		var http = require('http').Server(app);
@@ -64,6 +68,14 @@ module.exports = {
 
 
 		app.use(express.static('temp'));
+=======
+		app.use(express.static('temp'));
+		orderRouter.order(app);
+		menuRouter.menuRouter(app);
+		shouyinRouter.shouyinRouter(app);
+		app.listen(5555);
+		userRouter.Register(app);
+>>>>>>> 20dd63a052964fa874c2d3281cd0bd3e42fccfa2
 		orderRouter.order(app);
 		menuRouter.menuRouter(app);
 		shouyinRouter.shouyinRouter(app);

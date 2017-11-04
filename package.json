@@ -12,16 +12,23 @@
     "axios": "^0.17.0",
     "binary-loader": "0.0.1",
     "body-parser": "^1.18.2",
+<<<<<<< HEAD
     "bootstrap": "^3.3.7",
+=======
+>>>>>>> 20dd63a052964fa874c2d3281cd0bd3e42fccfa2
     "connect": "^3.6.5",
     "echarts": "^3.7.2",
     "element-ui": "^2.0.0",
     "font-awesome": "^4.7.0",
+<<<<<<< HEAD
     "jquery": "^3.2.1",
     "jquery-form": "^4.2.2",
     "multer": "^1.3.0",
     "mysql": "^2.15.0",
     "socket.io": "^2.0.4",
+=======
+    "mysql": "^2.15.0",
+>>>>>>> 20dd63a052964fa874c2d3281cd0bd3e42fccfa2
     "url-loader": "^0.6.2",
     "vue": "^2.4.4",
     "vue-router": "^3.0.1"

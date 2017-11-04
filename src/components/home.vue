@@ -9,11 +9,9 @@
             </el-col>   
             <el-col :span="5" class="userinfo">
                 <el-dropdown trigger="hover" @command="handleCommand">
-                <span class="el-dropdown-link userinfo-inner">{{sysUserName}}<el-badge is-dot :hidden="orderStatus"><img :src="this.sysUserAvatar" /></el-badge></span>
+                    <span class="el-dropdown-link userinfo-inner"><img :src="this.sysUserAvatar" /> {{sysUserName}}</span>
                     <el-dropdown-menu slot="dropdown">
-                        <el-badge :value="orderMsg" :max="10">
-                            <el-dropdown-item command="orderMsgs">我的消息</el-dropdown-item>
-                        </el-badge>
+                        <el-dropdown-item>我的消息</el-dropdown-item>
                         <el-dropdown-item>设置</el-dropdown-item>
                         <el-dropdown-item divided command="exit">退出登录</el-dropdown-item>
                     </el-dropdown-menu>
@@ -68,15 +66,10 @@
 </template>
 
 <script type="text/javascript">
-    import io from '../utils/socket.io.min.js';
-    var socket = io.connect('http://localhost:5544');
     export default {
         data() {
             return {
                 sysName:'RSOrder',
-                order:[],
-                orderStatus:true,
-                orderMsg:0,
                 sysUserName: 'Admin',
                 sysUserAvatar: './src/assets/img/a8.jpg',
                 isCollapse: false,
@@ -103,38 +96,11 @@
                     sessionStorage.removeItem('user');
                     this.$router.push({ path: '/login' });
 
-                }else if(command=='orderMsgs'){
-                    var _this = this;
-                    this.order.forEach(function(item,idx){
-                        var content = '';
-                        JSON.parse(item.params.orderContent).forEach(function(item,idx){
-                            content += item.count+'份'+item.menuName+" ";
-                        })
-
-                        _this.$notify({
-                            title: '成功下单',
-                            dangerouslyUseHTMLString: true,
-                            message: '订单号：'+ item.params.orderId + '<br>'+ content,
-                            type: 'success'
-                        });
-                    })
-                    this.orderStatus = true;
-                    this.orderMsg = 0;
-                    
                 }
             }
         },
         created:function(){
             this.limit = sessionStorage.getItem("user").slice(1,-1);
-        },
-        mounted: function(){
-         
-           socket.on('showMsg',(data)=>{
-                this.orderStatus = false;
-                var data = JSON.parse(data);
-                this.order.push(data);
-                this.orderMsg++;
-           });
         }
     }
 </script>
@@ -163,7 +129,7 @@
                     width: 40px;
                     height: 40px;
                     border-radius: 20px;
-                    margin-left:10px;
+                    margin: 10px 0px 10px 10px;
                     float: right;
                 }   
             }

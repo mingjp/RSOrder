@@ -2,7 +2,11 @@
 * @Author: Marte
 * @Date:   2017-10-31 11:41:38
 * @Last Modified by:   Marte
-* @Last Modified time: 2017-11-02 20:01:43
+<<<<<<< HEAD
+* @Last Modified time: 2017-11-04 16:28:11
+=======
+* @Last Modified time: 2017-10-31 22:12:39
+>>>>>>> 20dd63a052964fa874c2d3281cd0bd3e42fccfa2
 */
 
 export default {
@@ -17,6 +21,7 @@ export default {
     orderPrice: '合计',
     orderStatus: '支付状态',
     orderTime: '时间',
+
     orderRemark: '备注',
     menuId:'菜品ID',
     menuName:'菜品名',
@@ -27,6 +32,7 @@ export default {
     reviewId:'ID',
     reviewContent:'评论内容',
     reviewGrade:'评分',
-    reviewTime:'评论时间'
+    reviewTime:'评论时间',
+    orderRemark: '备注'
 
 }

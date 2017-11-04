@@ -1,10 +1,39 @@
 var mysql      = require('mysql');
+<<<<<<< HEAD
  var pool = mysql.createPool({
     host:'10.3.131.8',
+=======
+// var connection = mysql.createConnection({
+//   host     : '10.3.131.14',
+//   user     : 'myuser',
+//   password : '123',
+//   database : 'rsorder',
+// });
+ var pool = mysql.createPool({
+    host:'10.3.131.2',
+>>>>>>> 20dd63a052964fa874c2d3281cd0bd3e42fccfa2
     user:'myuser',
     password:'123',
     database:'rsorder'
 });
+<<<<<<< HEAD
+=======
+// // connection.connect();
+// pool.getConnection(function(err,conn){
+//   console.log(777);
+//   if(err){
+//     callback(err,null,null);
+//   }else{
+//     conn.query('select * from orders',function(err,vals,fields){
+//         //释放连接
+//         conn.release();
+//         //事件驱动回调
+//         // err? callback(err) : callback(vals);
+//         console.log(err, vals)
+//     });
+//   }
+// });
+>>>>>>> 20dd63a052964fa874c2d3281cd0bd3e42fccfa2
 
 module.exports = {
     insert: function(sql, callback){

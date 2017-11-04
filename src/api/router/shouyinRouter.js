@@ -13,6 +13,7 @@ module.exports = {
 			db.selects(sql, function(result){
 				response.send(result);
 			})
+<<<<<<< HEAD
 		});
 		app.post('/shouyinInsert', urlencoded, function(request, response){
 			str = `'${request.body.orderId}','${request.body.orderContent}','${request.body.orderPrice}',
@@ -23,6 +24,8 @@ module.exports = {
 				console.log(result);
 				response.end();
 			})
+=======
+>>>>>>> 20dd63a052964fa874c2d3281cd0bd3e42fccfa2
 		})
 	}
 }
