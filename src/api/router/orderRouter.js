@@ -6,7 +6,6 @@ var urlencode = bodyparser.urlencoded({extended: true});
 module.exports={
     order:function(app){
         app.get("/order_getAll", function(request, response){
-<<<<<<< HEAD
            var obj = request.query;
            var pagNo = obj.pagNo || 1;
            var qty = obj.qty || 10;
@@ -25,10 +24,6 @@ module.exports={
                     }
                     result[idx].orderContent.slice(0,-1);
                 }
-=======
-            var statement = 'select * from orders';
-            db.selects(statement, function(result){
->>>>>>> 20dd63a052964fa874c2d3281cd0bd3e42fccfa2
                 response.send(result);
             });
         });

@@ -3,7 +3,7 @@
 * @Date:   2017-11-01 13:57:55
 * @Last Modified by:   Marte
 <<<<<<< HEAD
-* @Last Modified time: 2017-11-02 20:38:25
+* @Last Modified time: 2017-11-06 08:59:39
 =======
 * @Last Modified time: 2017-11-01 16:03:07
 >>>>>>> 20dd63a052964fa874c2d3281cd0bd3e42fccfa2
@@ -52,10 +52,10 @@ module.exports = {
         })
 
         app.get('/user_add', function(request, response){
-<<<<<<< HEAD
-=======
+
+
             var id = request.query.userId;
->>>>>>> 20dd63a052964fa874c2d3281cd0bd3e42fccfa2
+
             var str = '';
             var params = '';
             for(var attr in request.query){

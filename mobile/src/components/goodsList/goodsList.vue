@@ -15,7 +15,6 @@
 
                 </ul>
 
-                <!-- <span style="display:inline-block;width:100%;padding-top:35px;text-align:center;"><i class="fa fa-shopping-cart" style="display:inline-block;width:140px;height:140px;border-radius:50%;font-size:100px;line-height:140px;color:#FFF;background-color:#FA5555;"></i></span> -->
             </div>
 
             <div class="g_right">    
