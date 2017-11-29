@@ -1,18 +1,20 @@
- 
+#app{width:100%;height:100%;::-webkit-scrollbar{width:0;}}
+.main::-webkit-scrollbar{display:none;}
 .menu{
     flex:1;
     display:flex;
     flex-direction: column;
-    overflow-y:auto;
     .menu_top{
-        height:100px;
+        height:30px;
+        width: 100%;
         display:flex;
+
         h3{
             width:30%;
-            margin-right:20px;
-            font-size:50px;
+            margin-right:10px;
+            font-size:18px;
             text-align:center;
-            padding:10px 0;
+            padding:5px 0;
             border-bottom:2px solid #FF0000;
             &:last-child{
                 width:70%;
@@ -21,22 +23,19 @@
     }
      
     .goodslist{
-    flex:1;
-    display:flex;
-   
         .g_left{
             width:30%;
-            margin-right:20px;
+            float:left;
             .type{
-                padding:20px 10px;
+                padding:10px 10px;
                 li{
-                    height:100px;
-                    line-height:100px;
+                    height:40px;
+                    line-height:40px;
                     text-align:center;
-                    font-size:40px;
+                    font-size:16px;
                     background:#FF2626;
                     color:#fff;
-                    padding:20px 0;
+                    padding:10px 0;
                     margin-bottom:3px;
                 }
                 .active{background:#D90000;}
@@ -45,12 +44,16 @@
         }
         .g_right{
             width:70%;
+            float:right;
+            height:524px;
             overflow-y:auto;
+            padding-left:5px;
+            box-sizing:border-box;
             .cuisine{
-                padding:20px;
+                padding:10px 0;
 
                 li{
-                    height: 240px;
+                    height: 120px;
                     margin-bottom:10px;
                     border-bottom:1px solid #ccc;
                     position:relative;
@@ -59,20 +62,23 @@
                     }
                     figcaption{
                         flex:1;
-                        padding-left:40px;
+                        padding-left:15px;
                         
                         h4{
-                            font-size:40px;
-                            margin:20px 0;
+                            font-size:14px;
+                            margin:15px 0;
+                        }
+                        p{
+                            font-size:14px;
                         }
                         p:nth-of-type(2){
-                            font-size:40px;
+                            font-size:16px;
                             color:red;
-                            line-height:50px;
-                            margin-top:30px;
+                            line-height:20px;
+                            margin-top:10px;
                             i{
                                 color:skyblue;
-                                font-size:50px;
+                                font-size:18px;
                                 float:right;
                                 margin-right:10px;
                             }
@@ -80,8 +86,8 @@
                     }
                     img{
                         float:left;
-                        height: 200px;
-                        width: 260px;
+                        height: 100px;
+                        width: 120px;
                         
                     }
                 }
@@ -91,56 +97,54 @@
 }
 .el-message-box{
     border-radius:5% !important;
-    width: 800px !important;
+    width: 300px !important;
    
     position:relative;
 }
 .el-message-box__message{
-     height: 980px;
+     height: 100%;
     p{
-        font-size:50px;
+        font-size:18px;
 
         &>p{
-            height:100px;
-            line-height:100px;
-            position:absolute;
-            bottom:50px;
-            padding-left:50px;
+            height:30px;
+            line-height:30px;
+            padding-left:10px;
             color:red;
         }
     }
     img{
         width:100%;
-        height:700px;
+        height:300px;
     }
     h4{
-        padding-left:50px;
-        height:200px;
-        line-height:200px;
+        padding-left:10px;
+        height:40px;
+        line-height:40px;
     }
 }
 .el-message-box__btns{
     text-align:center;
-    margin:30px 50px;
+    margin:0 20px;
    
 }
 .el-button--primary{
-    width:200px;
-    height:80px;
+    width:100px;
+    height:40px;
      
     span{
         
-        font-size:30px;
+        font-size:14px;
     }
     
 }
 .cartcontrol{
         position:absolute;
-        bottom:40px;
-        right:8px;
-        font-size: 56px;
+        bottom:30px;
+        right:5px;
+        font-size: 18px;
         .cart-decrease{
-            width:60px;
+            width:20px;
             display: inline-block;
             transition: all .4s linear;
             &.move-enter-active{
@@ -165,15 +169,16 @@
         .cart-count{
             display: inline-block;
             vertical-align: top;
-            width: 40px;
-            font-size: 40px;
-            line-height: 60px;
+            width: 20px;
+            font-size: 16px;
+            line-height: 24px;
             text-align: center;
             color: rgb(147,153,159);
             }
         .cart-add{
             display: inline-block;
             line-height: 24px;
+            width:20px;
             color: rgb(0,160,220);
         }
             

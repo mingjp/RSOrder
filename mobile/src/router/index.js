@@ -17,25 +17,25 @@ var router = new VueRouter({
       
     },
     {
-      path: 'goodsList',
+      path: '/goodsList',
       name: 'goodsList',
       component: GoodsListComponent
       
     },
     {
-      path: 'orders',
+      path: '/orders',
       name: 'orders',
       component: ordersComponent
       
     },
     {
-      path: 'my',
+      path: '/my',
       name: 'my',
       component: myComponent
       
     },
     {
-      path: 'serach',
+      path: '/serach',
       name: 'serach',
       component: serachComponent
       

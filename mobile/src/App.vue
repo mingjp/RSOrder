@@ -3,13 +3,16 @@
 
     <div class="container">
         <header>
-            <i class="el-icon-arrow-left"></i>
+            
             <input type="text" id="serach"></input>
             <i class="el-icon-search" @click="serach" ></i>
-            <i class="el-icon-arrow-right"></i>
+            
         </header>
+        <div class="main">
 
         <router-view></router-view>
+
+        </div>
 
      <footer >
         <ul class="clearfix">
@@ -38,15 +41,28 @@
 
             }
         },
-
+        mounted:function(){
+            var params = location.hash;
+            var idx = params.indexOf('/');
+            var url = params.substr(idx);
+            if(url == '/'){
+                this.show = 1;
+            }else if(url == '/goodsList'){
+                this.show = 2;
+            }else if(url == '/orders'){
+                this.show = 3;
+            }else{
+                this.show = 4;
+            }
+        },
         methods: {
-                goodslist:function(){
-                    this.show = 2;
-                    router.push({name:'goodsList'})
-                },
                 shouye:function(){
                     this.show = 1;
                     router.push({name:'Home'})
+                },
+                goodslist:function(){
+                    this.show = 2;
+                    router.push({name:'goodsList'})
                 },
                 orders:function(){
                     this.show = 3;

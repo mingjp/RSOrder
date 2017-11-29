@@ -69,7 +69,8 @@
 
 <script type="text/javascript">
     import io from '../utils/socket.io.min.js';
-    var socket = io.connect('http://localhost:5544');
+    import common from '../common/common.js'
+    var socket = io.connect(common.baseUrl);
     export default {
         data() {
             return {
@@ -120,7 +121,7 @@
                     })
                     this.orderStatus = true;
                     this.orderMsg = 0;
-                    
+                    console.log(this.orderMsg)
                 }
             }
         },

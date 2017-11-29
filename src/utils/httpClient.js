@@ -1,9 +1,10 @@
 
 import axios from 'axios'
 import qs from 'qs'
+import common from '../common/common.js'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
-var baseUrl = 'http://10.3.131.26:5555/';
+var baseUrl = common.baseUrl;
 var filterUrl = function(url){
 	if(url.startsWith('http')){
 		return url;

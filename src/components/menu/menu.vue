@@ -50,10 +50,11 @@
 	</div>
 </template>
 <script type="text/javascript">
-	import $ from 'jquery'  
-	import 'bootstrap/dist/css/bootstrap.min.css'
-	import 'jquery-form/dist/jquery.form.min.js'
-	import datagrid from '../../common/datagrid.vue'
+	import $ from 'jquery'  ;
+	import 'bootstrap/dist/css/bootstrap.min.css';
+	import 'jquery-form/dist/jquery.form.min.js';
+	import datagrid from '../../common/datagrid.vue';
+	import common from '../../common/common.js'
 	export default{
 		data:function(){
 			return {
@@ -66,7 +67,7 @@
 				menuDescribe:'',
 				otherType:'',
 				addShow:false,
-				baseUrl:'http://10.3.131.26:5555/'
+				baseUrl:common.baseUrl
 			}
 		},
 		methods:{

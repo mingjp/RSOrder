@@ -1,8 +1,8 @@
 var mysql      = require('mysql');
-
-
+var common = require('../src/common/common.js')
+console.log(common)
  var pool = mysql.createPool({
-    host:'10.3.131.8',
+    host:common.sqlUrl,
 
     user:'myuser',
     password:'123',

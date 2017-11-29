@@ -21,13 +21,14 @@
 </template>
 <script type="text/javascript">
     import io from '../utils/socket.io.min.js';
+    import common from '../common/common.js'
     import $ from 'jquery'  
-    var socket = io.connect('http://10.3.131.26:5555');
+    var socket = io.connect(common.baseUrl);
     export default {
         data(){
             return {
                 dataset: [],
-                baseUrl:'http://10.3.131.26:5555/'
+                baseUrl:common.baseUrl
             }
         },
         mounted: function(){

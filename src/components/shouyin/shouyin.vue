@@ -61,7 +61,8 @@
 	import 'jquery-form/dist/jquery.form.min.js'
 	import order_part from '../order_part.vue'
 	import io from '../../utils/socket.io.min.js';
-	var socket = io.connect('http://10.3.131.26:5555');
+	import common from '../../common/common.js'
+	var socket = io.connect(common.baseUrl);
 	export default {
 		data:function(){
 			return {
@@ -70,7 +71,7 @@
 				upOrdershow:false,
 				orderData:[],
 				menuTypeData:[],
-				baseUrl:'http://10.3.131.26:5555/',
+				baseUrl:common.baseUrl,
 				datas:[],
 				total:0,
 				upOrderData:[]

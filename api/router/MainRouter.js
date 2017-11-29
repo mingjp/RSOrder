@@ -1,11 +1,12 @@
 var userRouter = require('./userRouter.js');
-
 var rateRouter = require('./rateRouter.js');
-
 var orderRouter = require('./orderRouter.js');
 var menuRouter = require('./menuRouter.js');
 var shouyinRouter = require('./shouyinRouter.js');
+var goodslistRouter = require('./client_goodslistRouter.js');
+var client_orderRouter = require('./client_orderRouter.js');
 var express = require('express');
+var common = require('../../src/common/common.js');
 module.exports = {
 	Register: function(express){
 		var app = express();
@@ -27,7 +28,7 @@ module.exports = {
 
 		var http = require('http').Server(app);
 		var io = require('socket.io')(http);
-		http.listen(5555,'10.3.131.26');
+		http.listen(5555,common.url);
 		var clientName = new Array();
 		var orderDatas = new Array();
 		io.on("connection", function(client){
@@ -67,12 +68,11 @@ module.exports = {
 
 
 		app.use(express.static('temp'));
-
-		app.use(express.static('temp'));
+		goodslistRouter.goodslist(app);
+		client_orderRouter.order(app)
 		orderRouter.order(app);
 		menuRouter.menuRouter(app);
 		shouyinRouter.shouyinRouter(app);
-		app.listen(5555);
 		userRouter.Register(app);
 
 		orderRouter.order(app);

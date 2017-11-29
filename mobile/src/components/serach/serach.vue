@@ -3,7 +3,7 @@
         <ul>
             <li v-for="(obj,idx) in dataset" >
                 <figure class="clearfix" @click="detalis($event)">
-                    <img :src="'http://10.3.131.26:5555/'+obj.menuImg">
+                    <img :src="baseUrl+obj.menuImg">
                     <figcaption>
                         <h4>{{obj.menuName}}</h4>
                         <p>{{obj.menuDescribe}}</p>
@@ -36,6 +36,7 @@
     import $ from 'jquery'
     import Vue from 'vue'
     import loading from '../../components/loading/loading.vue'
+    import common from '../../../../src/common/common.js'
     export default{
         data:function(){
             
@@ -43,7 +44,8 @@
             return {
                 dataset:[],
                 searchOrder:[],
-                loadingShow:false
+                loadingShow:false,
+                baseUrl:common.baseUrl
             }
         },
         components:{

@@ -1,13 +1,13 @@
 <template>
     <el-container>
-        <el-header height='100px'>订单
+        <el-header>订单
         </el-header>
         <el-main>
             <ul class="cuisine">
 
                 <li v-for="(obj,idx) in ordersList">
                     <figure class="clearfix">
-                        <img :src="'http://10.3.131.26:5555/'+obj.menuImg">
+                        <img :src="baseUrl+obj.menuImg">
                         <figcaption>
                             <h4>{{obj.menuName}}</h4>
                             <p>{{obj.menuDescribe}}</p>
@@ -31,9 +31,9 @@
                     
                 </li>
             </ul>
-            <div style="position:fixed;bottom:200px;right:20px;font-size:50px;">
+            <div style="position:fixed;bottom:100px;right:20px;font-size:16px;">
             总价：￥<span>{{totalPrice}}</span>
-                <el-button type="success" style="width:220px;height:120px;border-radius:13px;" @click.stop.prevent="account">下单</el-button>
+                <el-button type="success" style="width:80px;height:40px;border-radius:5%;" @click.stop.prevent="account">下单</el-button>
             </div>
         </el-main>
     </el-container>
@@ -44,12 +44,14 @@
     import http from '../../utils/httpClient.js'
     import router from '../../router'
     import io from '../../utils/socket.io.min.js';
-    var socket = io.connect('http://localhost:5544');
+    import common from '../../../../src/common/common.js';
+    var socket = io.connect(common.baseUrl);
     export default {
         data:function(){
             return{
                 ordersList:[],
-                totalPrice: 0
+                totalPrice: 0,
+                baseUrl:common.baseUrl
             }
         },
         methods:{

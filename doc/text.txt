@@ -1,0 +1,2 @@
+1、进入文件夹可直接运行pc端、mobile文件夹为移动端
+2、根目录src文件夹common文件中的common.js中修改baseurl

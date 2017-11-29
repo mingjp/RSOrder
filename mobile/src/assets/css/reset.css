@@ -31,11 +31,6 @@ main{ box-sizing:border-box;}
     zoom:1;
     visibility: hidden;
 }
-.container{
-    width:980px;
-    min-width:980px;
-    margin:0 auto;
-}
 .fl{float:left;}
 .fr{float:right;}
 .fiximg{

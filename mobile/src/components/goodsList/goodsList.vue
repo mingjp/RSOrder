@@ -24,7 +24,7 @@
                     <li v-for="(obj,idx) in dataset">
 
                         <figure class="clearfix" @click="detalis($event)">
-                            <img :src="'http://10.3.131.26:5555/'+obj.menuImg">
+                            <img :src="baseUrl+obj.menuImg">
                             <figcaption>
                                 <h4>{{obj.menuName}}</h4>
                                 <p>{{obj.menuDescribe}}</p>
@@ -67,6 +67,7 @@
     import $ from 'jquery'
     import Vue from 'vue'
     import loading from '../loading/loading.vue'
+    import common from '../../../../src/common/common.js'
     export default{
         data:function(){
             return {
@@ -74,7 +75,8 @@
                 dataType:[],
                 aa:0,
                 Order:[],
-                loadingShow:false
+                loadingShow:false,
+                baseUrl:common.baseUrl
 
             }
         },
@@ -89,7 +91,7 @@
                 url: 'getType',
                 vm:self
             }).then(res => {
-        
+                
                 self.dataType = res.data
                 this.soup(self.dataType[0].menuType);
                 
