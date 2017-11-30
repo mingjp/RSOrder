@@ -3,15 +3,24 @@
         <div class="main_shouye">
 
             <el-carousel :interval="2000" arrow="always">
-                <el-carousel-item v-for="item in imgary">
-                <img :src='item'>
+                <el-carousel-item>
+                <img src="../../assets/menuImg/1.jpg">
+                </el-carousel-item>
+                <el-carousel-item>
+                <img src="../../assets/menuImg/2.jpg">
+                </el-carousel-item>
+                <el-carousel-item>
+                <img src="../../assets/menuImg/3.jpg">
+                </el-carousel-item>
+                <el-carousel-item>
+                <img src="../../assets/menuImg/4.jpg">
                 </el-carousel-item>
             </el-carousel>
 
             <div class="main_c clearfix">
                 <h3>本店招牌(人气招牌菜)</h3>
                 <figure>
-                    <img src="src/assets/menuImg/1.jpg">
+                    <img src="../../assets/menuImg/1.jpg">
                     <figcaption>
                         <p>牡丹花开</p>
                         <h4>49.90</h4>
@@ -20,7 +29,7 @@
                 </figure>
                 
                 <figure>
-                    <img src="src/assets/menuImg/2.jpg" >
+                    <img src="../../assets/menuImg/2.jpg" >
                     <figcaption>
                         <p>豆腐香片</p>
                         <h4>69.90</h4>
@@ -31,8 +40,8 @@
             </div>
             <div class="main_rem">
                 <h3>今日推荐</h3>
-                <img src="src/assets/menuImg/4.jpg" price="33" name="凉拌豆芽" @click="detalis($event)">
-                <img src="src/assets/menuImg/5.jpg" price="33" name="凉拌粉丝"@click="detalis($event)">
+                <img src="../../assets/menuImg/4.jpg" price="33" name="凉拌豆芽" @click="detalis($event)">
+                <img src="../../assets/menuImg/5.jpg" price="33" name="凉拌粉丝"@click="detalis($event)">
 
             </div>
 
@@ -76,7 +85,6 @@
     export default {
         data:function(){
             return{
-                imgary:['src/assets/menuImg/1.jpg','src/assets/menuImg/2.jpg','src/assets/menuImg/3.jpg','src/assets/menuImg/4.jpg','src/assets/menuImg/5.jpg'],
                 reviewData:[],
                 dataset:[],
 

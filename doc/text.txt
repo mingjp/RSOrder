@@ -1,2 +1,5 @@
+组长：明经平
+组员：唐湖金、黄敏琼、李发强
+
 1、进入文件夹可直接运行pc端、mobile文件夹为移动端
 2、根目录src文件夹common文件中的common.js中修改baseurl
